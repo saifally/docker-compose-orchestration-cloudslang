@@ -1,3 +1,3 @@
 FROM cloudslang/cloudslang
 
-COPY slang/ /slang/
+COPY slang/ /usr/cslang/cslang-cli/content/io/

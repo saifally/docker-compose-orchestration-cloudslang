@@ -30,7 +30,11 @@ services:
 
   cloudslang:
     build: ./cloudslang/.
-    command: ["run --f /slang/hello_world.sl --cp /slang"]
+    command: ["run --f ../content/io/ping_hosts.sl --cp ../content/"]
+    links:
+     - container1
+     - container2
+     - container0
 
 volumes:
   data-volume:
