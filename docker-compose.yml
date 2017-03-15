@@ -4,17 +4,33 @@ services:
   container0:
     build: ./httpserv/.
     command: ["7000"]
+    volumes:
+      - data-volume:/tmp/data-volume
+      - ./sharedfolder:/tmp/sharedfolder
     ports:
-     - "8000:8000"
+     - "7000:7000"
 
   container1:
     build: ./httpserv/.
     command: ["8000"]
+    volumes:
+      - data-volume:/tmp/data-volume
+      - ./sharedfolder:/tmp/sharedfolder
     ports:
      - "8000:8000"
 
   container2:
     build: ./httpserv/.
     command: ["9000"]
+    volumes:
+      - data-volume:/tmp/data-volume
+      - ./sharedfolder:/tmp/sharedfolder
     ports:
      - "9000:9000"
+
+  cloudslang:
+    build: ./cloudslang/.
+    command: ["run --f /slang/hello_world.sl --cp /slang"]
+
+volumes:
+  data-volume:
