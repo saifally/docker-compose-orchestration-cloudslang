@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  container0:
+    build: ./httpserv/.
+    command: ["7000"]
+    ports:
+     - "8000:8000"
+
+  container1:
+    build: ./httpserv/.
+    command: ["8000"]
+    ports:
+     - "8000:8000"
+
+  container2:
+    build: ./httpserv/.
+    command: ["9000"]
+    ports:
+     - "9000:9000"
